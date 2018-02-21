@@ -13,14 +13,7 @@ class SteamBrowser::CLI
   end
 
   def matts_picks
-    puts <<-DOC.gsub /^\s*/, ''
-      Here's Matt's top 5 game picks:
-      1. FreeHolder
-      2. Kerbal Space Program
-      3. The Long Dark
-      4. Rimworld
-      5. Doom
-    DOC
+    @games = SteamBrowser::Game.matts_picks # Make this work...
   end
 
   def menu
