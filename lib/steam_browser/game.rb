@@ -3,14 +3,6 @@ class SteamBrowser::Game
   attr_accessor :title, :price, :sale_price, :rating, :genres
 
   def self.matts_picks
-    puts <<-DOC.gsub /^\s*/, ''
-      Here's Matt's top 5 game picks:
-      1. FreeHolder
-      2. Kerbal Space Program
-      3. The Long Dark
-      4. Rimworld
-      5. Doom
-    DOC
 
     game_1 = self.new
     game_1.title = "FreeHolder"
@@ -47,6 +39,6 @@ class SteamBrowser::Game
     game_5.rating = "Very Positive (92% - 33,579 Reviews)"
     game_5.genres = "FPS/Action/Gore"
 
-    [game_1, game_2, game_3, game_4, game_5]
+   [game_1, game_2, game_3, game_4, game_5]
   end
 end
