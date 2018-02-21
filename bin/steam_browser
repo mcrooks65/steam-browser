@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/steam_browser'
+require "bundler/setup"
+require "steam_browser"
 
 SteamBrowser::CLI.new.call
