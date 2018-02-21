@@ -55,6 +55,10 @@ class SteamBrowser::Game
   end
 
   def self.scrape_by_title(title) # Class method should take one argument, a game title string, and scrape the appropriate steam store page for data and then return that Game object.
+    game = self.new
 
+    # Scraper goes here!  Fill game up with title, price, rating, genres!
+
+    game
   end
 end
