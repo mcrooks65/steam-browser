@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+require './lib/steam_browser'
+
+SteamBrowser::CLI.new.call

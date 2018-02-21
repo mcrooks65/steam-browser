@@ -1,5 +1,2 @@
-require "steam_browser/version"
-
-module SteamBrowser
-  # Your code goes here...
-end
+require_relative './steam_browser/version'
+require_relative './steam_browser/cli'
