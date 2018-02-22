@@ -6,14 +6,14 @@ class SteamBrowser::Game
 
   def self.matts_picks   # Matt's picks should have a hardcoded array of 5 game titles and then calls the scraper to scrape the appropriate Steam webpages to fill out game data.
 
-    self.scrape_by_title(MATTS_PICKS[0]) # This line should do what the 6 lines below do...
+    game_1 = self.scrape_by_title(MATTS_PICKS[0]) # This line should do what the 6 lines below do...
 
-    game_1 = self.new
-    game_1.title = "FreeHolder"
-    game_1.price = "$9.99"
-    game_1.sale_price = "$5.99"
-    game_1.rating = "Positive (83% - 31 Reviews)"
-    game_1.genres = "Strategy/RPG/Indie"
+    # game_1 = self.new
+    # game_1.title = "FreeHolder"
+    # game_1.price = "$9.99"
+    # game_1.sale_price = "$5.99"
+    # game_1.rating = "Positive (83% - 31 Reviews)"
+    # game_1.genres = "Strategy/RPG/Indie"
 
     self.scrape_by_title(MATTS_PICKS[1])
 
@@ -58,7 +58,8 @@ class SteamBrowser::Game
     game = self.new
 
     # Scraper goes here!  Fill game up with title, price, rating, genres!
-
+    doc = Nokogiri::HTML(open("http://store.steampowered.com/search/?term=#{title}")) # First Search
+    binding.pry
     game
   end
 end
