@@ -9,15 +9,16 @@ class SteamBrowser::CLI
   end
 
   def welcome
-    puts "Welcome to Steam Browser v0.0.1"
+    puts "Welcome to Steam Browser v0.3.0"
   end
 
   def matts_picks
     puts "Here's Matt's top 5 game picks:"
     @games = SteamBrowser::Game.matts_picks
     @games.each.with_index(1) do |game, i|
-      puts "#{i}, #{game.title}"
+      puts "#{i}. #{game.title}"
     end
+    puts "5. Doom (NOT WORKING AGE VERIFICAITON REQUIRED)" # Reminder placeholder while age verify fix is figured out.
   end
 
   def menu

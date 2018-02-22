@@ -29,10 +29,11 @@ class SteamBrowser::Game
     doc = Nokogiri::HTML(open(target_url)) # Load doc with new search target url
 
     game.title = doc.search("div.apphub_AppName").text
-    game.price = doc.search("div.game_purchase_price.price").text.strip # Needs fixing - Sometimes gives extra prices
+    game.price = doc.search("div.game_purchase_price.price").first.text.strip
     game.rating = doc.search("div.user_reviews_summary_row").first.attr("data-store-tooltip").strip
     game.genres = doc.search("div.glance_tags.popular_tags").text.strip.gsub("\t", "").gsub("\r", "").gsub("\n", "/").gsub("+", "")
 
+    binding.pry
     game
   end
 end
