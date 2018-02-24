@@ -65,7 +65,14 @@ class SteamBrowser::CLI
   end
 
   def search_by_title
+    input = nil
 
+    puts "Enter the game title you're looking for:"
+    input = gets.strip.downcase
+
+    @game = SteamBrowser::Game.scrape_by_title(input)
+
+    binding.pry
   end
 
   def goodbye
