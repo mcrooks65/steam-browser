@@ -29,10 +29,13 @@ class SteamBrowser::CLI
 
       if input.to_i > 0 && input.to_i <= @games.length
         game_choice = @games[input.to_i-1]
+
         puts game_choice.title
         puts game_choice.price
+        puts game_choice.desc
         puts game_choice.rating
         puts game_choice.genres
+
       elsif input == "list"
         matts_picks
       else

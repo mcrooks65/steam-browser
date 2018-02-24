@@ -1,6 +1,6 @@
 class SteamBrowser::Game
 
-  attr_accessor :title, :price, :rating, :genres  #Add :desc later for game descriptions.  Also consider adding :developer and :publisher as well.  And :sale_price.
+  attr_accessor :title, :price, :rating, :genres, :desc # Consider adding :developer and :publisher as well.  And :sale_price.
 
   MATTS_PICKS = ["FreeHolder", "Kerbal Space Program", "The Long Dark", "Rimworld", "Doom"] # NEED TO FIX SO DOOM CAN BE READ (AGE VERIFICAITON PAGE BLOCKING SCRAPER)
 
@@ -29,6 +29,7 @@ class SteamBrowser::Game
     game.price = doc.search("div.game_purchase_price.price").first.text.strip
     game.rating = doc.search("div.user_reviews_summary_row").first.attr("data-store-tooltip").strip
     game.genres = doc.search("div.glance_tags.popular_tags").text.strip.gsub("\t", "").gsub("\r", "").gsub("\n", "/").gsub("+", "")
+    game.desc = doc.search("#game_highlights > div.rightcol > div > div.game_description_snippet").text.strip
 
     game # Return game object
   end
