@@ -9,7 +9,7 @@ class SteamBrowser::CLI
   end
 
   def welcome
-    puts "Welcome to Steam Browser v0.3.0"
+    puts "Welcome to Steam Browser v#{SteamBrowser::VERSION}"
   end
 
   def matts_picks
