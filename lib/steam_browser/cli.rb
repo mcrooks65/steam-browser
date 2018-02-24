@@ -3,13 +3,33 @@ class SteamBrowser::CLI
 
   def call
     welcome
-    matts_picks
-    menu
+    menu # matts_picks/matts_menu
     goodbye
   end
 
   def welcome
     puts "Welcome to Steam Browser v#{SteamBrowser::VERSION}"
+  end
+
+  def menu
+    input = nil
+    while input != "q"
+
+      puts "1. Matt's Picks"
+      puts "2. Search by Game Title (Experimental)"
+      puts "q. Quit Steam Browser"
+
+      input = gets.strip.downcase
+
+      if input == "1"
+        matts_picks
+        matts_menu
+      elsif input == "2"
+        search_by_title
+      else
+        puts "Not a valid input.  Select a function or 'q' to quit." unless input == 'q'
+      end
+    end
   end
 
   def matts_picks
@@ -21,10 +41,10 @@ class SteamBrowser::CLI
     puts "5. Doom (NOT WORKING AGE VERIFICAITON REQUIRED)" # Reminder placeholder while age verify fix is figured out.
   end
 
-  def menu
+  def matts_menu
     input = nil
-    while input != "q"
-      puts "Enter the number of the game you'd like more info on or 'q' to quit."
+    while input != "b"
+      puts "Enter the number of the game you'd like more info on or 'b' to go back to the main menu."
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= @games.length
@@ -39,9 +59,13 @@ class SteamBrowser::CLI
       elsif input == "list"
         matts_picks
       else
-        puts "Not a valid input.  Type 'list' or 'q' to quit." unless input == 'q'
+        puts "Not a valid input.  Type 'list' or 'b' to go back to the main menu." unless input == 'b'
       end
     end
+  end
+
+  def search_by_title
+
   end
 
   def goodbye
