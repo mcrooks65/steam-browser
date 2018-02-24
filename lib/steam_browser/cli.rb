@@ -72,7 +72,11 @@ class SteamBrowser::CLI
 
     @game = SteamBrowser::Game.scrape_by_title(input)
 
-    binding.pry
+    puts @game.title
+    puts @game.price
+    puts @game.desc
+    puts @game.rating
+    puts @game.genres
   end
 
   def goodbye
