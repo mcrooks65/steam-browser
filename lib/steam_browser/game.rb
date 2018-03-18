@@ -10,17 +10,8 @@ class SteamBrowser::Game
     MATTS_PICKS.collect do |game|
       self.scrape_by_title(game)
     end
-    # game_1 = self.scrape_by_title(MATTS_PICKS[0])
-    # game_2 = self.scrape_by_title(MATTS_PICKS[1])
-    # game_3 = self.scrape_by_title(MATTS_PICKS[2])
-    # game_4 = self.scrape_by_title(MATTS_PICKS[3])
-    #game_5 = self.scrape_by_title(MATTS_PICKS[4]) # Scraping the Doom store page is currently being blocked by AGE VERIFICATION. This is a tough fix...
-    # [game_1, game_2, game_3, game_4] #game_5
-  end
 
-  # def age_check?(doc)
-  #
-  # end
+  end
 
   def self.scrape_by_title(title) # Class method should take one argument, a game title string, and scrape the appropriate steam store page for data and then return that Game object.
     game = self.new # Create new Game object called game
