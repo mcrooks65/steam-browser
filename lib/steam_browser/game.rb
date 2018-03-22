@@ -25,7 +25,7 @@ class SteamBrowser::Game
       # Load game object with the appropriate scraped data from target_url
       game.title = doc.search("div.apphub_AppName").text
       game.price = doc.search("div.game_purchase_price.price").first.text.strip
-      game.rating = doc.search("div.user_reviews_summary_row").first.attr("data-store-tooltip").strip
+      game.rating = doc.search("#game_highlights > div.rightcol > div > div.glance_ctn_responsive_left > div > div.user_reviews_summary_row > div.summary.column > span.nonresponsive_hidden.responsive_reviewdesc").children.first.text.strip.gsub("- ", "")
       game.genres = doc.search("div.glance_tags.popular_tags").text.strip.gsub("\t", "").gsub("\r", "").gsub("\n", "/").gsub("+", "")
       game.desc = doc.search("#game_highlights > div.rightcol > div > div.game_description_snippet").text.strip
 
