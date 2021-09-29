@@ -17,7 +17,7 @@ class SteamBrowser::Game
     game = self.new # Create new Game object called game
 
     search_doc = Nokogiri::HTML(open("http://store.steampowered.com/search/?term=#{title}")) # First search
-    target_url = search_doc.search("#search_result_container > div:nth-child(2) > a:nth-child(2)").first.attr("href").strip # Search target url acquisition
+    target_url = search_doc.search("#search_resultsRows > a:nth-child(1)").first.attr("href").strip # Search target url acquisition
 
     doc = Nokogiri::HTML(open(target_url)) # Load doc with new search target url
 
